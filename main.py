@@ -42,9 +42,9 @@ def echo(client: pyrogram.client.Client, message: pyrogram.types.messages_and_me
 @app.on_message(filters.command(["help"]))
 def help(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
     
     helpmessage = """__**/start** - basic usage
 **/help** - this message
@@ -214,20 +214,20 @@ def mdiskdown(client: pyrogram.client.Client, message: pyrogram.types.messages_a
     except:
         pass
 
-    app.send_message(message.chat.id, '**Send only __MDisk Link__ with command followed by the link**',reply_to_message_id=message.id)
+    #app.send_message(message.chat.id, '**Send only __MDisk Link__ with command followed by the link**',reply_to_message_id=message.id)
 
 
 # thumb command
 @app.on_message(filters.command(["thumb"]))
 def thumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
 
     try:
         if int(message.reply_to_message.document.file_size) > 200000:
-            app.send_message(message.chat.id, '**Thumbline size allowed is < 200 KB**',reply_to_message_id=message.id)
+            #app.send_message(message.chat.id, '**Thumbline size allowed is < 200 KB**',reply_to_message_id=message.id)
             return
 
         msg = app.get_messages(message.chat.id, int(message.reply_to_message.id))
@@ -243,9 +243,9 @@ def thumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_m
 @app.on_message(filters.command(["show"]))
 def showthumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
     
     if os.path.exists(f'{message.from_user.id}-thumb.jpg'):
         app.send_photo(message.chat.id,photo=f'{message.from_user.id}-thumb.jpg',reply_to_message_id=message.id)
@@ -257,9 +257,9 @@ def showthumb(client: pyrogram.client.Client, message: pyrogram.types.messages_a
 @app.on_message(filters.command(["remove"]))
 def removethumb(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
     
     
     if os.path.exists(f'{message.from_user.id}-thumb.jpg'):
