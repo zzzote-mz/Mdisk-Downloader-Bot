@@ -201,9 +201,9 @@ def down(message,link):
 @app.on_message(filters.command(["mdisk"]))
 def mdiskdown(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
 
     try:
         link = message.text.split("mdisk ")[1]
@@ -310,9 +310,9 @@ def multilinks(message,links):
 @app.on_message(filters.text)
 def mdisktext(client: pyrogram.client.Client, message: pyrogram.types.messages_and_media.message.Message):
     
-    if not checkuser(message):
-        app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
-        return
+    #if not checkuser(message):
+        #app.send_message(message.chat.id, '__You are either not **Authorized** or **Banned**__',reply_to_message_id=message.id)
+        #return
 
     if "https://mdisk.me/" in message.text:
         links = message.text.split("\n")
